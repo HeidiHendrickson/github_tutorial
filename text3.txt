@@ -1,0 +1,96 @@
+Introduction
+Activity 6: Git and GitHub
+In this activity, you will clone a working GitHub repository and perform some basic tasks that are common in using GitHub and git as a community repository. Note that git and GitHub are extremely powerful and only a very small subset of the capabilities are shown in this exercise.
+Make a fork of an existing GitHub repository to your GitHub account
+● Find an existing repository that you want to work on. For our purposes, use the repository at https://github.com/HeidiHendrickson/github_tutorial (i.e., go to that link).
+● Click on the “Fork” button on the upper right corner of the screen:
+  ● This will create a clone of the repository into your GitHub account and put your active browser page on your repository. This will allow you to make your own changes to the content of the repository.
+
+Make a clone on your laptop machine
+To clone your repository onto your computer:
+● You will need to know the repository address (or remote address) to take the information
+from. Go to your repository in GitHub on your browser and click on the green “Code” button. Once the pop-up window opens, click on the clipboard icon to copy the URL into the clipboard (make sure to grab the URL and not the ssh address):
+  ● Now, go to your Terminal or Anaconda Powershell Prompt window. We will make a clone of the repository in GitHub to your local machine. We will make a folder in your (Desktop) folder to make sure we know where it is. Type:
+cd (Desktop)/molssi-day2 git clone <url>
+where you should substitute the location of your desktop folder for (Desktop). Also, <url> should be replaced with the url you obtained in the previous step. (You can paste it into the command window or type it from the browser window – in the example abovethe<url>ishttps://github.com/HendricksonH/github-tutorial.) Donotusethe url in the picture above! Use the one for your repository!
+
+● You should now have a copy of the repository on your computer. To get into the directory where the files are located, type:
+cd github-tutorial
+If you then type:
+ls
+into the command window, you will get a list of the files that are in the repository.
+It is important here to note that you have not just made a copy of the files onto your local machine, but also into the local git repository on your computer! So, for a while, we are going to work on your local files and on the local git repository. Once we have things like we want them in the local git repository, we will make the changes into GitHub.
+Making a change in a file
+The next thing we will do is to make some changes in a couple of the files and commit them into the local git repository. Note that we can make as many changes to the files as we want without any fear of changing the repository until we use a “git” command. Even then, there are ways (that we won’t go into for this short tutorial) to recover from most commands. So, have no fear of trying things out! This is how you learn!
+● Using a text editor (like VS Code), open up the file text1.txt.
+● Make any changes that you like (e.g., change words, delete sentences, add text, etc.).
+● Save and close the file.
+● Open up the file text2.txt and again make any changes that you like, save and close
+the file.
+At this point, you have only made changes to your local files, but not to the local git repository.
+Now, let’s learn a command that is very useful to get an overall view of what has changed from your files and the local git repository. Type:
+git status
+You will see something similar to the following:
+
+ Note that it tells us that we have two files that have been modified. They have not yet been added into the local repository. Also note that while git recognizes that text1.txt and text2.txt have been modified, they are “not staged for commit”. It turns out that we actually have three local areas we need to be concerned about: the local files, the local git repository and a git staging area that we haven’t discussed before. Think of the staging area as a place where we let git know which files we are going to commit to the local repository (because we may not want to commit all of the files that we are going to make changes on). To add these files to the staging area, we type:
+git add text1.txt text2.txt git status
+This should give us:
+
+ The two files are now in the staging area and could be committed to the local repository. But before we do that, let’s add another file.
+Add a file
+Let’s say that we decide we want to add another file that has some of our other favorite text in it to share with our fellow students. So, let’s make another file.
+● Open your text editor (if it is not already open), and open a new file.
+● Put in any text that you would like.
+● Save the file as text3.txt and close it. (Make sure that the file that you created is in
+the directory with the other local files.)
+In the command window, type “git status”. You should see something like this:
+
+ Note that in addition to the two files that we modified and that are in the staging area, we now have an “untracked file” text3.txt. It is untracked because git knows nothing about it! So, we need to tell git that we want this file to be part of the repository. To do that, type:
+git add text3.txt git status
+You should see something like:
+
+ Note now that text3.txt has been added to the staging area and is ready to be committed. It has not yet been committed, though.
+Committing changes to the local repository
+Now that we have all of the changes and additions that we want into the staging area, we are ready to put those changes into the repository. This is done by typing:
+git commit -m "some simple modifications and additions"
+The text in the quotes can be whatever message that you would like to give. The message should usually be more descriptive than this one is – the idea is to give you some idea of what the changes were. Now type “git status” again. You should see something like:
+
+ Note that it says that there is nothing to commit. It also says, “Your branch is ahead of ‘origin/main’ by 1 commit.” This is saying that you have made 1 commit to your local repository (a “branch” of your GitHub repository) that is not in your GitHub repository (origin/main).
+We could repeat making changes to our files and committing changes to our local repository until we have made all of the changes that we want. We can do as many “git commit” commands as we need to get the files as we want them. Once this is done, we are ready to push our changes back up to the GitHub repository.
+Create a Personal Access Token
+In order to push your changes to the GitHub repository, you will first need to create a Personal Access Token, which for the command-line interface, is used along with your username instead of your password. More information on creating a Personal Access Token can be found here.
+To create your Personal Access Token, go to your GitHub account in your browser, click on your profile icon and select Settings, as shown below:
+
+  In the Settings section, scroll down until you see the <> Developer Settings in the left sidebar, and click <> Developer Settings.
+In the <> Developer Settings section, click on Personal access tokens in the left sidebar, as shown below. Click the Generate new token button to generate a token.
+
+  When creating your token, give your token a name if you like, choose an expiration date, check the repo box, then click Generate new token.
+When your token is generated, copy the token to the clipboard. The token is like a password, so you should take care of it as such! This means the token should not be shared with anyone else!
+Once you have your token, you are ready to push your changes to the GitHub repository.
+
+Push our changes from our local git repository up to our GitHub account
+Type:
+git push origin main
+origin means the place where the local repository was taken from – our GitHub account in this case – and main means the local branch that we want to push. By default, your local git repository is called main (if the repo was first created on GitHub).
+If you still aren’t getting anything, type:
+GIT_CURL_VERBOSE=1 git push origin main
+and contact one of the instructors for help.
+You can check to see if your GitHub repository has been updated by going to the browser with your GitHub repository in it and refreshing the browser screen. You should see the message for the commit on text1.txt and text2.txt, and you should also see the new file text3.txt.
+Requesting your changes be made to the upstream repository (the one you originally forked from)
+Your changes are now in your GitHub repository. However, if you have made changes that you would like to get back into the upstream repository (the one you originally forked from), you will now need to do a pull request. This is basically notifying the originator of the upstream repository that you would like some changes merged into the upstream repository. The originator can decide whether or not to include some or all of the changes into the upstream repository. To start the pull request:
+● In your browser, go to the upstream GitHub repository: https://github.com/HeidiHendrickson/github_tutorial. [In practice, you can also do this from your repository, although things will look a bit different.]
+● Click on the “Pull requests” tab and then the “New pull request” button:
+
+
+● On the resulting page, click the “compare across forks” link:
+ ● Next, you need to pick a fork to compare against. Click on “head repository:” and choose your fork:
+
+● Next, click on the green “Create pull request” button:
+● On the resulting page, write a title for your pull request and a brief description of the changes you made. Then click on the green “Create pull request” button (yes, again):
+
+    Now it will be up to the originator of the upstream repository to decide whether to merge your code into his/her repository.
+Final thoughts
+This is a very brief introduction to using git and GitHub and doesn’t show all of the many features that are important when using repositories. In particular, it doesn’t show how to resolve conflicts or directly merge new changes from the upstream repository into your local repository on your computer. This is very important when working on collaborative projects where many people are contributing to the software on a regular basis. You will need to keep your working repository up to date with the upstream repository.
+Some tutorials that may be of use to you if you want to take your skills further are:
+http://swcarpentry.github.io/git-novice/ https://guides.github.com/activities/hello-world/ https://gist.github.com/jaseemabid/1321592 (a list of git and GitHub resources) https://docs.github.com/en/get-started/quickstart/git-and-github-learning-resources
+   
