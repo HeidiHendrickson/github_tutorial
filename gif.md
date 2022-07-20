@@ -9,3 +9,5 @@
 
 ### Credits
 Stack Overflow
+
+![Cat Gif](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
