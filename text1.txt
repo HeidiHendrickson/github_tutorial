@@ -18,7 +18,7 @@ requirements . . . half an inch, if that . . ."
 
 "Hello, Nick," said Harry. 
 
-"Hello, hello," said Nearly Headless Nick, starting and looking round. He wore a dashing, plumed hat on his long curly hair, 
+"Hello, Hello," said Nearly Headless Nick, starting and looking round. He wore a dashing, plumed hat on his long curly hair, 
 and a tunic with a ruff, which concealed the fact that his neck was almost completely severed. He was pale as smoke, and Harry 
 could see right through him to the dark sky and torrential rain outside. 
 
@@ -43,7 +43,7 @@ impossible otherwise for members to participate in hunt activities such as Horse
 greatest regret, therefore, that I must inform you that you do not fulfill our requirements. With very best wishes, 
 Sir Patrick Delaney-Podmore.'" 
 
-Fuming, Nearly Headless Nick stuffed the letter away. 
+Fuming, Nearly Headless Nick stuffed the letter away.  
 
 "Half an inch of skin and sinew holding my neck on, Harry! Most people would think that's good and beheaded, but oh, no, 
 it's not enough for Sir Properly Decapitated-Podmore." 
